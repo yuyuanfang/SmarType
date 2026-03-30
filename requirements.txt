@@ -1,0 +1,13 @@
+# 全局语音听写工具 v2 - 依赖包
+# 安装命令: pip install -r requirements.txt
+
+openai>=1.0.0          # OpenAI Whisper API
+pyaudio>=0.2.13        # 录音（如安装失败: pip install pipwin && pipwin install pyaudio）
+keyboard>=0.13.5       # 全局热键监听
+pyautogui>=0.9.54      # 模拟键盘输入
+pyperclip>=1.8.2       # 剪贴板操作
+pynput>=1.7.6          # 键盘/鼠标监听
+
+# Windows 窗口检测（自动简繁切换必需）
+pywin32>=306           # 获取活动窗口信息
+psutil>=5.9.0          # 获取进程名称

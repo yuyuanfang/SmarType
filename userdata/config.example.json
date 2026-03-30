@@ -1,0 +1,18 @@
+{
+  "groq_api_key": "",
+  "api_key": "",
+  "gemini_api_key": "",
+  "glm_api_key": "",
+  "hotkey": "right shift",
+  "language": "zh",
+  "insert_method": "clipboard",
+  "auto_lang": true,
+  "default_lang": "zh-TW",
+  "mic_index": null,
+  "auto_start": false,
+  "segment_secs": 3,
+  "llm_polish": false,
+  "use_local_model": false,
+  "local_model_size": "medium",
+  "energy_thr": 27
+}

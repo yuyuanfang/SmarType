@@ -1,0 +1,51 @@
+# ── Python ────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+*.egg
+
+# ── User Data (contains API keys and personal data) ──
+userdata/config.json
+userdata/debug.log
+userdata/history.jsonl
+userdata/diary/
+userdata/flywheel_*.json
+userdata/models/
+userdata/status.json
+userdata/*.bak
+
+# ── AI Models (too large for Git) ─────────────────
+models/
+
+# ── Handover archives ─────────────────────────────
+*.zip
+handover_*.md
+
+# ── Logs & temp files ─────────────────────────────
+*.log
+*.txt
+!requirements.txt
+crash.txt
+error.txt
+
+# ── IDE & OS ──────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# ── Claude settings ──────────────────────────────
+.claude/
+
+# ── Misc junk files ──────────────────────────────
+4d}
+*.mp4
+*.docx
+*.png
