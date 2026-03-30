@@ -1,13 +1,27 @@
-# 全局语音听写工具 v2 - 依赖包
-# 安装命令: pip install -r requirements.txt
+# SmarType v6 — 依賴套件
+# 安裝命令: pip install -r requirements.txt
 
-openai>=1.0.0          # OpenAI Whisper API
-pyaudio>=0.2.13        # 录音（如安装失败: pip install pipwin && pipwin install pyaudio）
-keyboard>=0.13.5       # 全局热键监听
-pyautogui>=0.9.54      # 模拟键盘输入
-pyperclip>=1.8.2       # 剪贴板操作
-pynput>=1.7.6          # 键盘/鼠标监听
+# ── 核心（必要）──────────────────────────────────
+pyaudio>=0.2.13        # 錄音（安裝失敗請試: pip install pipwin && pipwin install pyaudio）
+keyboard>=0.13.5       # 全域熱鍵監聽
+pyautogui>=0.9.54      # 模擬鍵盤輸入
+pyperclip>=1.8.2       # 剪貼簿操作
+pystray>=0.19.4        # 系統匣圖示
+Pillow>=10.0.0         # 圖示繪製
+pywin32>=306           # Windows 視窗偵測
+psutil>=5.9.0          # 程序管理
 
-# Windows 窗口检测（自动简繁切换必需）
-pywin32>=306           # 获取活动窗口信息
-psutil>=5.9.0          # 获取进程名称
+# ── AI 語音辨識（至少裝一個）─────────────────────
+groq>=0.4.0            # Groq Whisper（主力，推薦）
+openai>=1.0.0          # OpenAI Whisper（備用）
+
+# ── AI 潤色 / 翻譯（選用）────────────────────────
+google-genai>=1.0.0    # Gemini API（潤色 / 翻譯）
+
+# ── 管理介面（選用，執行 dashboard.py 需要）──────
+customtkinter>=5.2.0   # Dashboard GUI
+
+# ── 本地模型（選用，離線辨識需要）────────────────
+# faster-whisper>=0.10.0   # 本地 Whisper 模型
+# sherpa-onnx>=1.8.0       # 串流本地辨識
+# numpy>=1.24.0            # sherpa-onnx 依賴
