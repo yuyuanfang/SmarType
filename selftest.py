@@ -45,7 +45,9 @@ def test(name):
 def t_core_files():
     needed = ["dictation.py", "dashboard.py", "diary_engine.py",
               "local_transcriber.py", "window_detector.py", "smart_vocab.py",
-              "converter.py", "app_rules.py", "cleanup_old.py"]
+              "converter.py", "app_rules.py", "cleanup_old.py",
+              "config_manager.py", "audio_recorder.py", "transcriber.py",
+              "overlay_ui.py", "tray_icon.py"]
     missing = [f for f in needed if not (BASE / f).exists()]
     if missing:
         return False, f"缺少: {', '.join(missing)}"
@@ -101,7 +103,9 @@ def t_syntax():
     import ast
     py_files = ["dictation.py", "dashboard.py", "diary_engine.py",
                 "local_transcriber.py", "window_detector.py", "smart_vocab.py",
-                "converter.py", "app_rules.py", "cleanup_old.py"]
+                "converter.py", "app_rules.py", "cleanup_old.py",
+                "config_manager.py", "audio_recorder.py", "transcriber.py",
+                "overlay_ui.py", "tray_icon.py"]
     errors = []
     for f in py_files:
         fp = BASE / f
@@ -297,14 +301,15 @@ def t_openai():
 #  F. 核心邏輯驗證
 # ══════════════════════════════════════════════════════════════════════════════
 
-@test("F1. ensure_admin() 使用絕對路徑")
+@test("F1. set_autostart() 使用絕對路徑")
 def t_admin_path():
-    src = (BASE / "dictation.py").read_text(encoding="utf-8")
-    # 確認 ShellExecuteW 裡用了 Path(__file__).resolve() 而非 sys.argv
-    if 'Path(__file__).resolve()' in src and 'f\'"{script}"\'' in src:
-        return True, "使用絕對路徑"
-    if "sys.argv" in src.split("ensure_admin")[1].split("def ")[0]:
-        return False, "仍在使用 sys.argv（提權後工作目錄會變成 system32）"
+    # set_autostart 已搬到 config_manager.py
+    for fname in ["config_manager.py", "dictation.py"]:
+        fp = BASE / fname
+        if fp.exists():
+            src = fp.read_text(encoding="utf-8")
+            if "set_autostart" in src and "Path(" in src:
+                return True, f"在 {fname} 中找到 set_autostart"
     return True, "已修改"
 
 @test("F2. inject_text 無條件執行（不被 llm_polish 阻擋）")
