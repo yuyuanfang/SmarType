@@ -105,7 +105,9 @@ def t_syntax():
                 "local_transcriber.py", "window_detector.py", "smart_vocab.py",
                 "converter.py", "app_rules.py", "cleanup_old.py",
                 "config_manager.py", "audio_recorder.py", "transcriber.py",
-                "overlay_ui.py", "tray_icon.py"]
+                "overlay_ui.py", "tray_icon.py",
+                "tabs/tab_home.py", "tabs/tab_history.py", "tabs/tab_vocab.py",
+                "tabs/tab_diary.py", "tabs/tab_settings.py"]
     errors = []
     for f in py_files:
         fp = BASE / f
