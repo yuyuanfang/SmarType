@@ -4,8 +4,8 @@
     "cloud code": "claude code",
     "cloud cowork": "claude cowork"
   },
-  "session_count": 342,
-  "total_chars": 20740,
+  "session_count": 345,
+  "total_chars": 20779,
   "auto_learned": [
     "whisper-dictation",
     "gstar",
